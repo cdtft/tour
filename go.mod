@@ -1,4 +1,4 @@
-module tour
+module github.com/cdtft/tour
 
 go 1.14
 

@@ -1,8 +1,8 @@
 package main
 
 import (
+	"github.com/cdtft/tour/cmd"
 	"log"
-	"tour/cmd"
 )
 
 func main() {

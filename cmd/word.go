@@ -4,7 +4,7 @@ import (
 	"github.com/spf13/cobra"
 	"log"
 	"strings"
-	"tour/internal/word"
+	"github.com/cdtft/tour/internal/word"
 )
 
 var str string

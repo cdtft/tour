@@ -3,6 +3,7 @@ package sql2struct
 import (
 	"database/sql"
 	"fmt"
+	_ "github.com/go-sql-driver/mysql"
 )
 
 type DBModel struct {
@@ -60,8 +61,7 @@ func (m *DBModel) Connect() error {
 
 //获取表字段信息
 func (m *DBModel) GetColumns(dbName, tableName string) ([]*TableColumn, error) {
-	query := "SELECT COLUMN_NAME, DATA_TYPE, COLUMN_KEY, IS_NULLABLE, COLUMN_TYPE, COLUMN_COMMENT FROM COLUMNS WHERE " +
-		"TABLE_SCHEMA = ? AND TABLE_NAME = ?"
+	query := "SELECT `COLUMN_NAME`, DATA_TYPE, COLUMN_KEY, IS_NULLABLE, COLUMN_TYPE, COLUMN_COMMENT FROM COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ?"
 	rows, err := m.DBEngine.Query(query, dbName, tableName)
 	if err != nil {
 		return nil, err
